@@ -2,22 +2,35 @@ import React, { Component } from 'react';
 import MainNavBar from './sub-components/MainNavBar';
 import PropTypes from 'prop-types';
 import ArticleList from './sub-components/ArticleList';
+import TopicList from './sub-components/TopicList';
 
 class Homepage extends Component {
   state = {
-    sortOrder: 'recent'
+    sortOrder: 'recent',
+    topicFilter: 'none'
   }
   render() {
-    const { sortOrder } = this.state;
+    const { sortOrder, topicFilter } = this.state;
     const { user } = this.props;
     return (
       <div>
         <MainNavBar user={user} />
-        <section className='homepage main'>
-          <ArticleList sortOrder={sortOrder} />
-        </section>
+        <div className="homepage-content">
+          <section className='homepage articles'>
+            <ArticleList sortOrder={sortOrder} topicFilter={topicFilter} />
+          </section>
+          <section className='homepage topics'>
+            <TopicList changeTopicFilter={this.changeTopicFilter} />
+          </section>
+        </div>
       </div>
     );
+  }
+
+  changeTopicFilter = (topic) => {
+    this.setState({
+      topicFilter: topic
+    });
   }
 }
 

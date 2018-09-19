@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../../api';
 import ArticleCard from './ArticleCard';
+
 class ArticleList extends Component {
   state = {
     articles: []
@@ -14,10 +15,6 @@ class ArticleList extends Component {
           articles
         });
       });
-  }
-
-  componentDidUpdate() {
-
   }
 
   render() {

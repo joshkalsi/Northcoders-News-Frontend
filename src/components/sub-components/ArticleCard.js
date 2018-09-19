@@ -11,7 +11,7 @@ const ArticleCard = ({ article }) => {
 };
 
 ArticleCard.propTypes = {
-  article: PropTypes.array
+  article: PropTypes.object
 };
 
 export default ArticleCard;
