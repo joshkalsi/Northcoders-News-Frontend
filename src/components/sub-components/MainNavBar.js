@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import UserSearch from './UserSearch';
 import UserCard from './UserCard';
+import UserLogin from './UserLogin';
 
 const MainNavBar = ({ user }) => {
   return (
@@ -17,7 +18,7 @@ const MainNavBar = ({ user }) => {
 
       {user
         ? <UserCard />
-        : <UserSearch />
+        : <UserLogin />
       }
     </nav>
   );

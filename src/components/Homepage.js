@@ -1,5 +1,5 @@
 import React from 'react';
-import MainNavBar from './MainNavBar';
+import MainNavBar from './sub-components/MainNavBar';
 import PropTypes from 'prop-types';
 
 const Homepage = ({ user }) => {
@@ -9,7 +9,7 @@ const Homepage = ({ user }) => {
 };
 
 Homepage.propTypes = {
-  user: PropTypes.string
+  user: PropTypes.string,
 };
 
 export default Homepage;

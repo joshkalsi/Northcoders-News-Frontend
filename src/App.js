@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import './CSS/App.css';
+import './CSS/MainNavBar.css';
 import { Route } from 'react-router-dom';
 import Homepage from './components/Homepage';
 
@@ -11,7 +12,7 @@ class App extends Component {
     const { user } = this.state;
     return (
       <div className="App">
-        <Route path='/' render={() => <Homepage user={user} />} />
+        <Route exact path='/' render={() => <Homepage user={user} />} />
       </div>
     );
   }
