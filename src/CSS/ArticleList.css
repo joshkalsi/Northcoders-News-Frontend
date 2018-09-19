@@ -1,0 +1,12 @@
+div.articles-header h1 {
+ display: inline;
+}
+
+div.sort-order {
+  float: right;
+}
+
+div.sort-order p {
+  display: inline;
+  margin-left: 5px;
+}

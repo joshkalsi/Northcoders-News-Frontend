@@ -6,18 +6,17 @@ import TopicList from './sub-components/TopicList';
 
 class Homepage extends Component {
   state = {
-    sortOrder: 'recent',
     topicFilter: 'none'
   }
   render() {
-    const { sortOrder, topicFilter } = this.state;
+    const { topicFilter } = this.state;
     const { user } = this.props;
     return (
       <div>
         <MainNavBar user={user} />
         <div className="homepage-content">
           <section className='homepage articles'>
-            <ArticleList sortOrder={sortOrder} topicFilter={topicFilter} />
+            <ArticleList topicFilter={topicFilter} />
           </section>
           <section className='homepage topics'>
             <TopicList changeTopicFilter={this.changeTopicFilter} />
@@ -32,6 +31,7 @@ class Homepage extends Component {
       topicFilter: topic
     });
   }
+
 }
 
 Homepage.propTypes = {

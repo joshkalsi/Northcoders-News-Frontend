@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ArticleCard = ({ article }) => {
   return (
     <div className='article-card'>
-      <h2>{article.title}</h2>
+      <h3>{article.title}</h3>
       <p>{article.created_by.name}</p>
     </div>
   );

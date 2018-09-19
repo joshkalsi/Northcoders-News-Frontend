@@ -21,6 +21,7 @@ class TopicList extends Component {
     const { changeTopicFilter } = this.props;
     return (
       <div className='topic-list'>
+        <h2 className="topic-list-item" onClick={() => changeTopicFilter('none')}>All Topics</h2>
         {topics.map(topic => {
           return <h2 className='topic-list-item' key={topic._id} onClick={() => changeTopicFilter(topic.slug)}>{topic.title}</h2>;
         })}
