@@ -8,7 +8,12 @@ import UserLogin from './UserLogin';
 const MainNavBar = ({ user }) => {
   return (
     <nav className='main-nav-bar'>
-      <h1 className='nc-news-title'>Northcoders News</h1>
+      <div className='nc-news title'>
+        <a href='/' >
+          <img src="../../images/nc-logo.png" alt="Northcoders Logo" className='nc-news logo' />
+          <h1 className='nc-news text'>Northcoders News</h1>
+        </a>
+      </div>
 
       <Link to='/topics'>
         <h2>Topics</h2>
