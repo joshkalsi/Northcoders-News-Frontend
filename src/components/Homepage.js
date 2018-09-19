@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 
 const Homepage = ({ user }) => {
   return (
-    <MainNavBar user={user} />
+    <div>
+      <MainNavBar user={user} />
+    </div>
   );
 };
 

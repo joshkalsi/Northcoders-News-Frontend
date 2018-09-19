@@ -10,7 +10,7 @@ const MainNavBar = ({ user }) => {
     <nav className='main-nav-bar'>
       <div className='nc-news title'>
         <a href='/' >
-          <img src="../../images/nc-logo.png" alt="Northcoders Logo" className='nc-news logo' />
+          <img src='images/nc-logo.png' alt="Northcoders Logo" className='nc-news logo' />
           <h1 className='nc-news text'>Northcoders News</h1>
         </a>
       </div>

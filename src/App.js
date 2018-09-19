@@ -3,6 +3,7 @@ import './CSS/App.css';
 import './CSS/MainNavBar.css';
 import { Route } from 'react-router-dom';
 import Homepage from './components/Homepage';
+import Topics from './components/Topics';
 
 class App extends Component {
   state = {
@@ -13,6 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path='/' render={() => <Homepage user={user} />} />
+        <Route exact path='/topics' render={() => <Topics user={user} />} />
       </div>
     );
   }
