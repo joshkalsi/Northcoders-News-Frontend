@@ -6,6 +6,7 @@ import './CSS/ArticleList.css';
 import { Route } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import Topics from './components/Topics';
+import Article from './components/Article';
 
 class App extends Component {
   state = {
@@ -17,6 +18,7 @@ class App extends Component {
       <div className="App">
         <Route exact path='/' render={() => <Homepage user={user} />} />
         <Route exact path='/topics' render={() => <Topics user={user} />} />
+        <Route exact path='/articles/:article_id' component={Article} />
       </div>
     );
   }

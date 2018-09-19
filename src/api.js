@@ -9,4 +9,14 @@ export const fetchArticles = () => {
 export const fetchTopics = () => {
   return axios.get(`${DB_URL}/topics`)
     .then(({ data }) => data.topics);
-}
+};
+
+export const fetchSingleArticle = (article_id) => {
+  return axios.get(`${DB_URL}/articles/${article_id}`)
+    .then(({ data }) => data.article);
+};
+
+export const fetchCommentsforArticle = (article_id) => {
+  return axios.get(`${DB_URL}/articles/${article_id}/comments`)
+    .then(({ data }) => data.comments);
+};
