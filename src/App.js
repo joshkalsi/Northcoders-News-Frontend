@@ -21,7 +21,7 @@ class App extends Component {
         <Route exact path='/' render={() => <Homepage loggedInUser={loggedInUser} />} />
         <Route exact path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} loggedInUser={loggedInUser} />} />
         <Route exact path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
-        <Route exact path='/users/:username' render={({ match }) => <User match={match} loggedInUser={loggedInUser} />} />
+        <Route exact path='/users/:username' render={({ match, location }) => <User location={location} match={match} loggedInUser={loggedInUser} />} />
       </div>
     );
   }

@@ -17,7 +17,7 @@ const MainNavBar = ({ loggedInUser }) => {
 
       <UserSearch />
 
-      {loggedInUser
+      {Object.keys(loggedInUser).length
         ? <UserCard />
         : <UserLogin />
       }
