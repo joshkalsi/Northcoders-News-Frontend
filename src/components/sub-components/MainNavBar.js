@@ -8,12 +8,12 @@ import { Link } from 'react-router-dom';
 const MainNavBar = ({ loggedInUser }) => {
   return (
     <nav className='main-nav-bar'>
-      <div className='nc-news title'>
-        <Link to='/'>
+      <Link className='nc-news title' to='/'>
+        <div>
           <img src='http://localhost:3000/images/nc-logo.png' alt="Northcoders Logo" className='nc-news logo' />
-          <h1 className='nc-news text'>Northcoders News</h1>
-        </Link>
-      </div>
+        </div>
+        <h1 className='nc-news text'>Northcoders News</h1>
+      </Link>
 
       <UserSearch />
 

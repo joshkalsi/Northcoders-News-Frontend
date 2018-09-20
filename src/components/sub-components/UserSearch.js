@@ -8,9 +8,9 @@ class UserSearch extends Component {
   render() {
     const { searchedUsername } = this.state;
     return (
-      <div>
+      <div className='user-search'>
         <form>
-          <input onChange={this.handleChange} type="text" value={searchedUsername} placeholder='Search by username' />
+          <input onChange={this.handleChange} type="text" value={searchedUsername} placeholder='User Search' />
           <button onClick={this.search}>Go!</button>
         </form>
 
