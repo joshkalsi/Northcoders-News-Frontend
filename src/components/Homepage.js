@@ -28,7 +28,7 @@ class Homepage extends Component {
 }
 
 Homepage.propTypes = {
-  loggedInUser: PropTypes.object,
+  loggedInUser: PropTypes.string,
 };
 
 export default Homepage;

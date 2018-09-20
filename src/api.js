@@ -25,3 +25,8 @@ export const fetchUser = (username) => {
   return axios.get(`${DB_URL}/users/${username}`)
     .then(({ data }) => data.user);
 };
+
+export const postArticle = (article, topic) => {
+  return axios.post(`${DB_URL}/topics/${topic}/articles`, article)
+    .then(({ data }) => data.article);
+};

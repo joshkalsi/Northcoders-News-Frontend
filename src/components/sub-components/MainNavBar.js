@@ -17,7 +17,7 @@ const MainNavBar = ({ loggedInUser }) => {
 
       <UserSearch />
 
-      {Object.keys(loggedInUser).length
+      {loggedInUser
         ? <UserCard />
         : <UserLogin />
       }
@@ -26,7 +26,7 @@ const MainNavBar = ({ loggedInUser }) => {
 };
 
 MainNavBar.propTypes = {
-  loggedInUser: PropTypes.object
+  loggedInUser: PropTypes.string
 };
 
 export default MainNavBar;

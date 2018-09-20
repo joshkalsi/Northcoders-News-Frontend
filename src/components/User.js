@@ -38,7 +38,7 @@ class User extends Component {
 
 User.propTypes = {
   match: PropTypes.object,
-  loggedInUser: PropTypes.object
+  loggedInUser: PropTypes.string
 };
 
 export default User;

@@ -41,7 +41,7 @@ class Article extends Component {
 
 Article.propTypes = {
   match: PropTypes.object,
-  loggedInUser: PropTypes.object
+  loggedInUser: PropTypes.string
 };
 
 export default Article;

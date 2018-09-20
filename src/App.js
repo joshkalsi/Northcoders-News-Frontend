@@ -9,10 +9,11 @@ import Homepage from './components/Homepage';
 import TopicArticles from './components/TopicArticles';
 import Article from './components/Article';
 import User from './components/User';
+import ArticleSubmit from './components/ArticleSubmit';
 
 class App extends Component {
   state = {
-    loggedInUser: {}
+    loggedInUser: 'jessjelly'
   }
   render() {
     const { loggedInUser } = this.state;
@@ -21,7 +22,8 @@ class App extends Component {
         <Route exact path='/' render={() => <Homepage loggedInUser={loggedInUser} />} />
         <Route exact path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} loggedInUser={loggedInUser} />} />
         <Route exact path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
-        <Route exact path='/users/:username' render={({ match, location }) => <User location={location} match={match} loggedInUser={loggedInUser} />} />
+        <Route exact path='/users/:username' render={({ match }) => <User match={match} loggedInUser={loggedInUser} />} />
+        <Route exact path='/topics/:topic/articles/submit' render={({ match }) => <ArticleSubmit match={match} loggedInUser={loggedInUser} />} />
       </div>
     );
   }
