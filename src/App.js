@@ -13,13 +13,13 @@ import ArticleSubmit from './components/ArticleSubmit';
 import MainNavBar from './components/sub-components/MainNavBar';
 class App extends Component {
   state = {
-    loggedInUser: 'jessjelly'
+    loggedInUser: ''
   }
   render() {
     const { loggedInUser } = this.state;
     return (
       <div className="App">
-        <Route path='/' render={() => <MainNavBar loggedInUser={loggedInUser} />} />
+        <Route path='/' render={() => <MainNavBar loggedInUser={loggedInUser} userLogin={this.userLogin} />} />
         <Route exact path='/' render={() => <Homepage loggedInUser={loggedInUser} />} />
         <Route exact path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} loggedInUser={loggedInUser} />} />
         <Route exact path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
@@ -29,8 +29,8 @@ class App extends Component {
     );
   }
 
-  userLogin = (username, logoutCheck) => {
-    if (!logoutCheck) this.setState({ loggedInUser: '' });
+  userLogin = (username, logoutCheck = false) => {
+    if (logoutCheck) this.setState({ loggedInUser: '' });
     else this.setState({ loggedInUser: username });
   }
 
