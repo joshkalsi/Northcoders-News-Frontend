@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 const UserCard = ({ user }) => {
   if (!user) user = {};
   const replaceImage = (e) => {
@@ -10,7 +10,9 @@ const UserCard = ({ user }) => {
   return (
     <div>
       <img src={user.avatar_url} onError={replaceImage} alt="User Avatar" height='100px' />
-      <p>{user.name}</p>
+      <Link to={`/users/${user.username}`}>
+        <p>{user.name}</p>
+      </Link>
     </div>
   );
 };

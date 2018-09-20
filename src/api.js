@@ -20,3 +20,8 @@ export const fetchCommentsforArticle = (article_id) => {
   return axios.get(`${DB_URL}/articles/${article_id}/comments`)
     .then(({ data }) => data.comments);
 };
+
+export const fetchUser = (username) => {
+  return axios.get(`${DB_URL}/users/${username}`)
+    .then(({ data }) => data.user);
+};

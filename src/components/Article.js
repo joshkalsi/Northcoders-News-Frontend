@@ -25,9 +25,10 @@ class Article extends Component {
   }
   render() {
     const { article, comments } = this.state;
+    const { loggedInUser } = this.props;
     return (
       <div>
-        <MainNavBar />
+        <MainNavBar loggedInUser={loggedInUser} />
         <Link to={`/topics/${article.belongs_to}/articles`}>
           <h1>Back to articles</h1>
         </Link>
@@ -39,7 +40,8 @@ class Article extends Component {
 }
 
 Article.propTypes = {
-  match: PropTypes.object
+  match: PropTypes.object,
+  loggedInUser: PropTypes.object
 };
 
 export default Article;

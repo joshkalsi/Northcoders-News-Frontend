@@ -4,11 +4,11 @@ import ArticleList from './sub-components/ArticleList';
 import TopicList from './sub-components/TopicList';
 import PropTypes from 'prop-types';
 
-const TopicArticles = ({ match, user }) => {
+const TopicArticles = ({ match, loggedInUser }) => {
   const topicFilter = match.params.topic;
   return (
     <div>
-      <MainNavBar user={user} />
+      <MainNavBar loggedInUser={loggedInUser} />
       <div className="topic-articles-content">
         <section className='homepage articles'>
           <ArticleList topicFilter={topicFilter} />
@@ -23,7 +23,7 @@ const TopicArticles = ({ match, user }) => {
 
 TopicArticles.propTypes = {
   match: PropTypes.object,
-  user: PropTypes.string,
+  loggedInUser: PropTypes.object,
 };
 
 export default TopicArticles;

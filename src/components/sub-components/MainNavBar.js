@@ -5,7 +5,7 @@ import UserCard from './UserCard';
 import UserLogin from './UserLogin';
 import { Link } from 'react-router-dom';
 
-const MainNavBar = ({ user }) => {
+const MainNavBar = ({ loggedInUser }) => {
   return (
     <nav className='main-nav-bar'>
       <div className='nc-news title'>
@@ -17,7 +17,7 @@ const MainNavBar = ({ user }) => {
 
       <UserSearch />
 
-      {user
+      {loggedInUser
         ? <UserCard />
         : <UserLogin />
       }
@@ -26,7 +26,7 @@ const MainNavBar = ({ user }) => {
 };
 
 MainNavBar.propTypes = {
-  user: PropTypes.string
+  loggedInUser: PropTypes.object
 };
 
 export default MainNavBar;

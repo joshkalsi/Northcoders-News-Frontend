@@ -8,18 +8,20 @@ import { Route } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import TopicArticles from './components/TopicArticles';
 import Article from './components/Article';
+import User from './components/User';
 
 class App extends Component {
   state = {
-    user: ''
+    loggedInUser: {}
   }
   render() {
-    const { user } = this.state;
+    const { loggedInUser } = this.state;
     return (
       <div className="App">
-        <Route exact path='/' render={() => <Homepage user={user} />} />
-        <Route exact path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} user={user} />} />
-        <Route exact path='/articles/:article_id' component={Article} />
+        <Route exact path='/' render={() => <Homepage loggedInUser={loggedInUser} />} />
+        <Route exact path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} loggedInUser={loggedInUser} />} />
+        <Route exact path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
+        <Route exact path='/users/:username' render={({ match }) => <User match={match} loggedInUser={loggedInUser} />} />
       </div>
     );
   }

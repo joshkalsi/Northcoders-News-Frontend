@@ -9,10 +9,10 @@ class Homepage extends Component {
 
   }
   render() {
-    const { user } = this.props;
+    const { loggedInUser } = this.props;
     return (
       <div>
-        <MainNavBar user={user} />
+        <MainNavBar loggedInUser={loggedInUser} />
         <div className="homepage-content">
           <section className='homepage articles'>
             <ArticleList topicFilter={'none'} />
@@ -28,7 +28,7 @@ class Homepage extends Component {
 }
 
 Homepage.propTypes = {
-  user: PropTypes.string,
+  loggedInUser: PropTypes.object,
 };
 
 export default Homepage;
