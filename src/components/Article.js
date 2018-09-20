@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MainNavBar from './sub-components/MainNavBar';
 import SingleArticle from './sub-components/SingleArticle';
 import CommentList from './sub-components/CommentList';
+import { Link } from 'react-router-dom';
 
 class Article extends Component {
   state = {
@@ -27,6 +28,9 @@ class Article extends Component {
     return (
       <div>
         <MainNavBar />
+        <Link to={`/topics/${article.belongs_to}/articles`}>
+          <h1>Back to articles</h1>
+        </Link>
         <SingleArticle article={article} />
         <CommentList comments={comments} />
       </div>

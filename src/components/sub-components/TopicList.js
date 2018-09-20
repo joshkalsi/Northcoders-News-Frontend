@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../../api';
-import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class TopicList extends Component {
   state = {
@@ -18,20 +18,19 @@ class TopicList extends Component {
 
   render() {
     const { topics } = this.state;
-    const { changeTopicFilter } = this.props;
     return (
       <div className='topic-list'>
-        <h2 className="topic-list-item" onClick={() => changeTopicFilter('none')}>All Topics</h2>
+        <Link to='/'>
+          <h2 className="topic-list-item" >All Topics</h2>
+        </Link>
         {topics.map(topic => {
-          return <h2 className='topic-list-item' key={topic._id} onClick={() => changeTopicFilter(topic.slug)}>{topic.title}</h2>;
+          return (<Link to={`/topics/${topic.slug}/articles`} key={topic._id} >
+            <h2 className='topic-list-item'>{topic.title}</h2>
+          </Link>);
         })}
       </div>
     );
   }
 }
-
-TopicList.propTypes = {
-  changeTopicFilter: PropTypes.func.isRequired
-};
 
 export default TopicList;

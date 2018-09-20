@@ -6,30 +6,23 @@ import TopicList from './sub-components/TopicList';
 
 class Homepage extends Component {
   state = {
-    topicFilter: 'none'
+
   }
   render() {
-    const { topicFilter } = this.state;
     const { user } = this.props;
     return (
       <div>
         <MainNavBar user={user} />
         <div className="homepage-content">
           <section className='homepage articles'>
-            <ArticleList topicFilter={topicFilter} />
+            <ArticleList topicFilter={'none'} />
           </section>
-          <section className='homepage topics'>
-            <TopicList changeTopicFilter={this.changeTopicFilter} />
+          <section className='homepage topic-list'>
+            <TopicList />
           </section>
         </div>
       </div>
     );
-  }
-
-  changeTopicFilter = (topic) => {
-    this.setState({
-      topicFilter: topic
-    });
   }
 
 }

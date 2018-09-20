@@ -3,9 +3,10 @@ import './CSS/App.css';
 import './CSS/MainNavBar.css';
 import './CSS/Homepage.css';
 import './CSS/ArticleList.css';
+import './CSS/TopicArticles.css';
 import { Route } from 'react-router-dom';
 import Homepage from './components/Homepage';
-import Topics from './components/Topics';
+import TopicArticles from './components/TopicArticles';
 import Article from './components/Article';
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path='/' render={() => <Homepage user={user} />} />
-        <Route exact path='/topics' render={() => <Topics user={user} />} />
+        <Route exact path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} user={user} />} />
         <Route exact path='/articles/:article_id' component={Article} />
       </div>
     );
