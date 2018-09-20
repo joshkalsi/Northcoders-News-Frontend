@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SingleComment from './SingleComment';
 import moment from 'moment';
 import _ from 'lodash';
+
 class CommentList extends Component {
   state = {
     sortOrder: 'recent'

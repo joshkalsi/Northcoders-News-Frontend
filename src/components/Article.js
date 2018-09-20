@@ -5,6 +5,7 @@ import MainNavBar from './sub-components/MainNavBar';
 import SingleArticle from './sub-components/SingleArticle';
 import CommentList from './sub-components/CommentList';
 import { Link } from 'react-router-dom';
+import CommentSubmit from './sub-components/CommentSubmit';
 
 class Article extends Component {
   state = {
@@ -33,9 +34,18 @@ class Article extends Component {
           <h1>Back to articles</h1>
         </Link>
         <SingleArticle article={article} />
+        <CommentSubmit articleID={article._id} loggedInUser={loggedInUser} addNewComment={this.addNewComment} />
         <CommentList comments={comments} />
       </div>
     );
+  }
+
+  addNewComment = (comment) => {
+    const newComments = this.state.comments.map(comment => ({ ...comment }));
+    newComments.push(comment);
+    this.setState({
+      comments: newComments
+    });
   }
 }
 

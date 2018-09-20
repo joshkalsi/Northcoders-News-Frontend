@@ -30,3 +30,8 @@ export const postArticle = (article, topic) => {
   return axios.post(`${DB_URL}/topics/${topic}/articles`, article)
     .then(({ data }) => data.article);
 };
+
+export const postComment = (comment, articleID) => {
+  return axios.post(`${DB_URL}/articles/${articleID}/comments`, comment)
+    .then(({ data }) => data.comment);
+};
