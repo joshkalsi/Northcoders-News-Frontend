@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MainNavBar from './sub-components/MainNavBar';
 import PropTypes from 'prop-types';
 import * as api from '../api';
 
@@ -9,10 +8,9 @@ class ArticleSubmit extends Component {
     'article-body': ''
   }
   render() {
-    const { loggedInUser, match } = this.props;
+    const { match } = this.props;
     return (
       <div>
-        <MainNavBar loggedInUser={loggedInUser} />
         <section className="article-submit">
           <h1>Submit an article about {match.params.topic}!</h1>
           <form>

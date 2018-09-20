@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import MainNavBar from './sub-components/MainNavBar';
-import PropTypes from 'prop-types';
 import ArticleList from './sub-components/ArticleList';
 import TopicList from './sub-components/TopicList';
 
@@ -9,10 +7,8 @@ class Homepage extends Component {
 
   }
   render() {
-    const { loggedInUser } = this.props;
     return (
       <div>
-        <MainNavBar loggedInUser={loggedInUser} />
         <div className="homepage-content">
           <section className='homepage articles'>
             <ArticleList topicFilter={'none'} />
@@ -26,9 +22,4 @@ class Homepage extends Component {
   }
 
 }
-
-Homepage.propTypes = {
-  loggedInUser: PropTypes.string,
-};
-
 export default Homepage;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as api from '../api';
 import PropTypes from 'prop-types';
-import MainNavBar from './sub-components/MainNavBar';
 import SingleArticle from './sub-components/SingleArticle';
 import CommentList from './sub-components/CommentList';
 import { Link } from 'react-router-dom';
@@ -29,7 +28,6 @@ class Article extends Component {
     const { loggedInUser } = this.props;
     return (
       <div>
-        <MainNavBar loggedInUser={loggedInUser} />
         <Link to={`/topics/${article.belongs_to}/articles`}>
           <h1>Back to articles</h1>
         </Link>

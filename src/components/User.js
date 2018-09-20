@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
-import MainNavBar from './sub-components/MainNavBar';
 
 class User extends Component {
   state = {
@@ -19,7 +18,6 @@ class User extends Component {
   }
 
   render() {
-    const { loggedInUser } = this.props;
     const { searchedUser } = this.state;
     const replaceImage = (e) => {
       e.target.onError = null;
@@ -27,7 +25,6 @@ class User extends Component {
     };
     return (
       <div>
-        <MainNavBar loggedInUser={loggedInUser} />
         <img src={searchedUser.avatar_url} onError={replaceImage} alt="User Avatar" />
         <h1>Name: {searchedUser.name}</h1>
         <h2>Username: {searchedUser.username}</h2>
@@ -37,8 +34,7 @@ class User extends Component {
 }
 
 User.propTypes = {
-  match: PropTypes.object,
-  loggedInUser: PropTypes.string
+  match: PropTypes.object
 };
 
 export default User;

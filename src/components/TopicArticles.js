@@ -1,15 +1,13 @@
 import React from 'react';
-import MainNavBar from './sub-components/MainNavBar';
 import ArticleList from './sub-components/ArticleList';
 import TopicList from './sub-components/TopicList';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const TopicArticles = ({ match, loggedInUser }) => {
+const TopicArticles = ({ match }) => {
   const topicFilter = match.params.topic;
   return (
     <div>
-      <MainNavBar loggedInUser={loggedInUser} />
       <Link to={`/topics/${topicFilter}/articles/submit`}>
         <h1>Submit an Article!</h1>
       </Link>
@@ -26,8 +24,7 @@ const TopicArticles = ({ match, loggedInUser }) => {
 };
 
 TopicArticles.propTypes = {
-  match: PropTypes.object,
-  loggedInUser: PropTypes.string,
+  match: PropTypes.object
 };
 
 export default TopicArticles;
