@@ -7,13 +7,11 @@ class UserLogin extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='user-login'>
         <form>
-          <label htmlFor="username-login">Username:</label>
-          <input type="text" onChange={this.handleChange} name="username-login" id="username-login" value={this.state.username} />
+          <input type="text" onChange={this.handleChange} name="username-login" id="username-login" value={this.state.username} placeholder='Username:' />
           <br />
-          <label htmlFor="password-login">Password:</label>
-          <input type="password" name="password-login" id="password-login" />
+          <input type="password" name="password-login" id="password-login" placeholder='Password:' />
           <br />
           <button onClick={this.loginUser}>Submit</button>
         </form>

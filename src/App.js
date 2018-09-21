@@ -16,13 +16,14 @@ import * as api from './api';
 
 class App extends Component {
   state = {
-    loggedInUser: ''
+    loggedInUser: '',
+    user: {}
   }
   render() {
-    const { loggedInUser } = this.state;
+    const { loggedInUser, user } = this.state;
     return (
       <div className="App">
-        <Route path='/' render={() => <MainNavBar loggedInUser={loggedInUser} userLogin={this.userLogin} />} />
+        <Route path='/' render={() => <MainNavBar loggedInUser={loggedInUser} userLogin={this.userLogin} user={user} />} />
         <Route exact path='/' render={() => <Homepage loggedInUser={loggedInUser} />} />
         <Route exact path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} />} />
         <Route exact path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
@@ -37,8 +38,8 @@ class App extends Component {
     if (logoutCheck) this.setState({ loggedInUser: '' });
     else {
       api.fetchUser(username)
-        .then(() => {
-          this.setState({ loggedInUser: username });
+        .then((user) => {
+          this.setState({ loggedInUser: username, user });
         })
         .catch(() => alert('User does not exist!'));
     }

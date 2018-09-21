@@ -9,10 +9,10 @@ const UserCard = ({ user }) => {
     e.target.src = 'http://localhost:3000/images/avatar-404.png';
   };
   return (
-    <div>
-      <img src={user.avatar_url} onError={replaceImage} alt="User Avatar" height='100px' />
+    <div className='navbar-usercard'>
+      <img src={user.avatar_url} onError={replaceImage} alt="User Avatar" />
       <Link to={`/users/${user.username}`}>
-        <p>{user.name}</p>
+        <h2>{user.name}</h2>
       </Link>
     </div>
   );

@@ -43,9 +43,9 @@ class ArticleList extends Component {
             : <h1>Articles about {topicFilter}:</h1>
           }
           <div className="sort-order">
-            <p onClick={() => this.changeSortOrder('recent')} className="sort-recent">Recent</p>
-            <p onClick={() => this.changeSortOrder('votes')} className="sort-votes">Most Votes</p>
-            <p onClick={() => this.changeSortOrder('random')} className="sort-random">Random</p>
+            <p onClick={() => this.changeSortOrder('recent')} className={`sort-recent' ${sortOrder === 'recent'}`} >Recent</p>
+            <p onClick={() => this.changeSortOrder('votes')} className={`sort-votes' ${sortOrder === 'votes'}`} >Most Votes</p>
+            <p onClick={() => this.changeSortOrder('random')} className={`sort-random' ${sortOrder === 'random'}`} >Random</p>
           </div>
         </div>
         {articles

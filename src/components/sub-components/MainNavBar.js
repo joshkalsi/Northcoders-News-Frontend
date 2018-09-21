@@ -5,7 +5,7 @@ import UserCard from './UserCard';
 import UserLogin from './UserLogin';
 import { Link } from 'react-router-dom';
 
-const MainNavBar = ({ loggedInUser, userLogin }) => {
+const MainNavBar = ({ loggedInUser, userLogin, user }) => {
   return (
     <nav className='main-nav-bar'>
       <Link className='nc-news title' to='/'>
@@ -16,21 +16,23 @@ const MainNavBar = ({ loggedInUser, userLogin }) => {
       </Link>
 
       <UserSearch />
-
-      {loggedInUser
-        ? <div>
-          <UserCard />
-          <button onClick={() => userLogin(null, true)} >Logout</button>
-        </div>
-        : <UserLogin userLogin={userLogin} />
-      }
+      <div className='navbar-user'>
+        {loggedInUser
+          ? <div>
+            <UserCard user={user} />
+            <button id='user-logout' onClick={() => userLogin(null, true)} >Logout</button>
+          </div>
+          : <UserLogin userLogin={userLogin} />
+        }
+      </div>
     </nav>
   );
 };
 
 MainNavBar.propTypes = {
   loggedInUser: PropTypes.string,
-  userLogin: PropTypes.func
+  userLogin: PropTypes.func,
+  user: PropTypes.object
 };
 
 export default MainNavBar;

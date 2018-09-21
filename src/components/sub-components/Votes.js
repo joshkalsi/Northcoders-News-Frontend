@@ -10,13 +10,18 @@ class Votes extends Component {
     const { voted } = this.state;
     return (
       <div>
-        <h3>Votes: {voteNumber}</h3>
-        {!voted &&
-          <div>
-            <button onClick={() => this.handleVote('up')}>Up</button>
-            <button onClick={() => this.handleVote('down')}>Down</button>
-          </div>
-        }
+
+
+        <div className='votes'>
+          {!voted
+            ? <i onClick={() => this.handleVote('up')} className="fas fa-arrow-circle-up up-on"></i>
+            : <i className="fas fa-arrow-circle-up" ></i>}
+          <h3>{voteNumber}</h3>
+          {!voted
+            ? <i onClick={() => this.handleVote('down')} className="fas fa-arrow-circle-down down-on"></i>
+            : <i className="fas fa-arrow-circle-down" ></i>}
+        </div>
+
       </div>
     );
   }
