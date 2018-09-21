@@ -31,7 +31,7 @@ class Article extends Component {
         <Link to={`/topics/${article.belongs_to}/articles`}>
           <h1>Back to articles</h1>
         </Link>
-        <SingleArticle article={article} />
+        <SingleArticle article={article} changeVote={this.changeVote} />
         <CommentSubmit articleID={article._id} loggedInUser={loggedInUser} addNewComment={this.addNewComment} />
         <CommentList comments={comments} />
       </div>
@@ -44,6 +44,14 @@ class Article extends Component {
     this.setState({
       comments: newComments
     });
+  }
+
+  changeVote = (value) => {
+    const article = { ...this.state.article };
+    console.log(article);
+    if (value === 'up') article.votes++;
+    else if (value === 'down') article.votes--;
+    this.setState({ article });
   }
 }
 

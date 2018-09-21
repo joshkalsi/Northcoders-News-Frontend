@@ -35,3 +35,8 @@ export const postComment = (comment, articleID) => {
   return axios.post(`${DB_URL}/articles/${articleID}/comments`, comment)
     .then(({ data }) => data.comment);
 };
+
+export const changeArticleVote = (value, articleID) => {
+  return axios.patch(`${DB_URL}/articles/${articleID}?vote=${value}`)
+    .then(({ data }) => data.article);
+};
