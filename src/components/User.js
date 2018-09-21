@@ -20,6 +20,19 @@ class User extends Component {
       .catch((error) => this.setState({ error }));
   }
 
+  componentDidUpdate() {
+    const { username } = this.props.match.params;
+    if (this.state.searchedUser.username !== username) {
+      api.fetchUser(username)
+        .then(user => {
+          this.setState({
+            searchedUser: user
+          });
+        })
+        .catch((error) => this.setState({ error }));
+    }
+  }
+
   render() {
     const { searchedUser, error } = this.state;
     const replaceImage = (e) => {

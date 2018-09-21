@@ -7,10 +7,9 @@ class UserSearch extends Component {
     redirect: ''
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate() {
     if (this.state.redirect !== '') {
-      console.log('check')
-      this.setState({ redirect: '' })
+      this.setState({ redirect: '' });
     }
   }
   render() {
