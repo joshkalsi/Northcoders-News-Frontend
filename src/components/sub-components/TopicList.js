@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import * as api from '../../api';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class TopicList extends Component {
   state = {
-    topics: []
+    topics: [],
+    error: null
   }
 
   componentDidMount() {
@@ -13,13 +14,18 @@ class TopicList extends Component {
         this.setState({
           topics
         });
-      });
+      })
+      .catch(error => this.setState({ error }));
   }
 
   render() {
-    const { topics } = this.state;
+    const { topics, error } = this.state;
     return (
       <div className='topic-list'>
+        {error && <Redirect to={{
+          pathname: '/error',
+          state: { error: error.response.status }
+        }} />}
         <Link to='/'>
           <h2 className="topic-list-item" >All Topics</h2>
         </Link>

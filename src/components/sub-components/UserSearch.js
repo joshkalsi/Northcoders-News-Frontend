@@ -13,9 +13,9 @@ class UserSearch extends Component {
 
       <div className='user-search'>
         {redirect && <Redirect to={`/users/${redirect}`} />}
-        <form>
+        <form onSubmit={this.search}>
           <input onChange={this.handleChange} type="text" value={searchedUsername} placeholder='User Search' />
-          <button onClick={this.search}>Go!</button>
+          <button>Go!</button>
         </form>
 
       </div>
@@ -31,7 +31,7 @@ class UserSearch extends Component {
   search = (e) => {
     const { searchedUsername } = this.state;
     e.preventDefault();
-    this.setState({ redirect: searchedUsername });
+    this.setState({ redirect: searchedUsername, searchedUsername: '' });
   }
 }
 

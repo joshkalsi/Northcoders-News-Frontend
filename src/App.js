@@ -11,6 +11,7 @@ import Article from './components/Article';
 import User from './components/User';
 import ArticleSubmit from './components/ArticleSubmit';
 import MainNavBar from './components/sub-components/MainNavBar';
+import Error from './components/Error';
 class App extends Component {
   state = {
     loggedInUser: ''
@@ -25,6 +26,7 @@ class App extends Component {
         <Route exact path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
         <Route exact path='/users/:username' render={({ match }) => <User match={match} loggedInUser={loggedInUser} />} />
         <Route exact path='/topics/:topic/articles/submit' render={({ match }) => <ArticleSubmit match={match} loggedInUser={loggedInUser} />} />
+        <Route exact path='/error' component={Error} />
       </div>
     );
   }

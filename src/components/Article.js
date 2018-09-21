@@ -3,13 +3,14 @@ import * as api from '../api';
 import PropTypes from 'prop-types';
 import SingleArticle from './sub-components/SingleArticle';
 import CommentList from './sub-components/CommentList';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import CommentSubmit from './sub-components/CommentSubmit';
 
 class Article extends Component {
   state = {
     article: {},
-    comments: []
+    comments: [],
+    error: null,
   }
 
   componentDidMount() {
@@ -21,13 +22,18 @@ class Article extends Component {
           article,
           comments
         });
-      });
+      })
+      .catch((error) => this.setState({ error }));
   }
   render() {
-    const { article, comments } = this.state;
+    const { article, comments, error } = this.state;
     const { loggedInUser } = this.props;
     return (
       <div>
+        {error && <Redirect to={{
+          pathname: '/error',
+          state: { error: error.response.status }
+        }} />}
         <Link to={`/topics/${article.belongs_to}/articles`}>
           <h1>Back to articles</h1>
         </Link>

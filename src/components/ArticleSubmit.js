@@ -7,13 +7,18 @@ class ArticleSubmit extends Component {
   state = {
     'article-title': '',
     'article-body': '',
-    redirect: ''
+    redirect: '',
+    error: null
   }
   render() {
     const { match } = this.props;
-    const { redirect } = this.state;
+    const { redirect, error } = this.state;
     return (
       <div>
+        {error && <Redirect to={{
+          pathname: '/error',
+          state: { error: error.response.status }
+        }} />}
         {redirect && <Redirect to={`/articles/${redirect}`} />}
         <section className="article-submit">
           <h1>Submit an article about {match.params.topic}!</h1>
@@ -51,7 +56,8 @@ class ArticleSubmit extends Component {
     api.postArticle(article, match.params.topic)
       .then(article => {
         this.setState({ redirect: article._id });
-      });
+      })
+      .catch(error => this.setState({ error }));
   }
 }
 
