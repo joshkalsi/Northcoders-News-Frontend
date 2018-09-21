@@ -39,7 +39,7 @@ class Article extends Component {
         </Link>
         <SingleArticle article={article} changeArticleVote={this.changeArticleVote} />
         <CommentSubmit articleID={article._id} loggedInUser={loggedInUser} addNewComment={this.addNewComment} />
-        <CommentList comments={comments} changeCommentVote={this.changeCommentVote} />
+        <CommentList comments={comments} changeCommentVote={this.changeCommentVote} loggedInUser={loggedInUser} />
       </div>
     );
   }

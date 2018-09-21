@@ -51,3 +51,8 @@ export const changeCommentVote = withErrorHandling((value, commentID) => {
   return axios.patch(`${DB_URL}/comments/${commentID}?vote=${value}`)
     .then(({ data }) => data.comment);
 });
+
+export const deleteComment = withErrorHandling((commentID) => {
+  return axios.delete(`${DB_URL}/comments/${commentID}`)
+    .then(({ data }) => data.comment);
+});
