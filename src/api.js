@@ -40,3 +40,8 @@ export const changeArticleVote = (value, articleID) => {
   return axios.patch(`${DB_URL}/articles/${articleID}?vote=${value}`)
     .then(({ data }) => data.article);
 };
+
+export const changeCommentVote = (value, commentID) => {
+  return axios.patch(`${DB_URL}/comments/${commentID}?vote=${value}`)
+    .then(({ data }) => data.comment);
+};

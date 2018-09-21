@@ -22,9 +22,13 @@ class Votes extends Component {
   }
 
   handleVote = (value) => {
-    const { changeVote, id } = this.props;
-    changeVote(value);
-    api.changeArticleVote(value, id);
+    const { changeVote, id, type } = this.props;
+    changeVote(value, id);
+    if (type === 'article') {
+      api.changeArticleVote(value, id);
+    } else if (type === 'comment') {
+      api.changeCommentVote(value, id);
+    }
     this.setState({ voted: true });
   }
 }
@@ -32,7 +36,8 @@ class Votes extends Component {
 Votes.propTypes = {
   changeVote: PropTypes.func,
   voteNumber: PropTypes.number,
-  id: PropTypes.string
+  id: PropTypes.string,
+  type: PropTypes.string
 };
 
 export default Votes;

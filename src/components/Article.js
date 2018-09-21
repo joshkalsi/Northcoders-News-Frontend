@@ -31,9 +31,9 @@ class Article extends Component {
         <Link to={`/topics/${article.belongs_to}/articles`}>
           <h1>Back to articles</h1>
         </Link>
-        <SingleArticle article={article} changeVote={this.changeVote} />
+        <SingleArticle article={article} changeArticleVote={this.changeArticleVote} />
         <CommentSubmit articleID={article._id} loggedInUser={loggedInUser} addNewComment={this.addNewComment} />
-        <CommentList comments={comments} />
+        <CommentList comments={comments} changeCommentVote={this.changeCommentVote} />
       </div>
     );
   }
@@ -46,12 +46,19 @@ class Article extends Component {
     });
   }
 
-  changeVote = (value) => {
+  changeArticleVote = (value) => {
     const article = { ...this.state.article };
-    console.log(article);
     if (value === 'up') article.votes++;
     else if (value === 'down') article.votes--;
     this.setState({ article });
+  }
+
+  changeCommentVote = (value, id) => {
+    const comments = this.state.comments.map(comment => ({ ...comment }));
+    const commentToChangeIndex = comments.findIndex(comment => comment._id === id);
+    if (value === 'up') comments[commentToChangeIndex].votes++;
+    else if (value === 'down') comments[commentToChangeIndex].votes--;
+    this.setState({ comments });
   }
 }
 

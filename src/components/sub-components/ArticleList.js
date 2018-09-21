@@ -28,7 +28,7 @@ class ArticleList extends Component {
       else return -1;
     };
     const sortVotes = (a, b) => {
-      return a.votes - b.votes;
+      return b.votes - a.votes;
     };
     if (topicFilter !== 'none') articles = articles.filter(article => article.belongs_to === topicFilter);
     if (sortOrder === 'recent') articles = articles.sort(sortRecent);
@@ -50,7 +50,7 @@ class ArticleList extends Component {
         </div>
         {articles
           .map(article => {
-            return <ArticleCard key={article._id} article={article} />;
+            return <ArticleCard key={article._id} article={article} changeArticleVote={this.changeArticleVote} />;
           })
         }
       </div>
@@ -61,6 +61,14 @@ class ArticleList extends Component {
     this.setState({
       sortOrder: order
     });
+  }
+
+  changeArticleVote = (value, id) => {
+    const articles = this.state.articles.map(article => ({ ...article }));
+    const articleToChangeIndex = articles.findIndex(article => article._id === id);
+    if (value === 'up') articles[articleToChangeIndex].votes++;
+    else if (value === 'down') articles[articleToChangeIndex].votes--;
+    this.setState({ articles });
   }
 }
 

@@ -3,9 +3,6 @@ import ArticleList from './sub-components/ArticleList';
 import TopicList from './sub-components/TopicList';
 
 class Homepage extends Component {
-  state = {
-
-  }
   render() {
     return (
       <div>

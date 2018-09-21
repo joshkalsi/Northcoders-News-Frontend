@@ -10,7 +10,7 @@ class CommentList extends Component {
   }
   render() {
     let { sortOrder } = this.state;
-    let { comments } = this.props;
+    let { comments, changeCommentVote } = this.props;
     const sortRecent = (a, b) => {
       if (moment(a.created_at).isBefore(moment(b.created_at))) return 1;
       else return -1;
@@ -29,7 +29,7 @@ class CommentList extends Component {
           <p onClick={() => this.changeSortOrder('votes')} className="sort-votes">Most Votes</p>
         </div>
         {comments.map(comment => {
-          return <SingleComment key={comment._id} comment={comment} />;
+          return <SingleComment key={comment._id} comment={comment} changeCommentVote={changeCommentVote} />;
         })}
       </div>
     );
@@ -43,7 +43,8 @@ class CommentList extends Component {
 }
 
 CommentList.propTypes = {
-  comments: PropTypes.array
+  comments: PropTypes.array,
+  changeCommentVote: PropTypes.func
 };
 
 export default CommentList;
