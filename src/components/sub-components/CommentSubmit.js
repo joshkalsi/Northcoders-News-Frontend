@@ -38,7 +38,7 @@ class CommentSubmit extends Component {
         this.setState({
           'comment-body': ''
         });
-      });
+      }).catch(() => alert('You are not logged in!'));
   }
 }
 

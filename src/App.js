@@ -12,6 +12,8 @@ import User from './components/User';
 import ArticleSubmit from './components/ArticleSubmit';
 import MainNavBar from './components/sub-components/MainNavBar';
 import Error from './components/Error';
+import * as api from './api';
+
 class App extends Component {
   state = {
     loggedInUser: ''
@@ -33,7 +35,13 @@ class App extends Component {
 
   userLogin = (username, logoutCheck = false) => {
     if (logoutCheck) this.setState({ loggedInUser: '' });
-    else this.setState({ loggedInUser: username });
+    else {
+      api.fetchUser(username)
+        .then(() => {
+          this.setState({ loggedInUser: username });
+        })
+        .catch(() => alert('User does not exist!'));
+    }
   }
 
 }
