@@ -3,7 +3,7 @@ nav.main-nav-bar {
   display: flex;
   justify-content: space-between;
   height: 100px;
-  border-bottom: 5px solid #5d0917;
+  border-bottom: 5px solid #1C2826;
 }
 
 
@@ -11,7 +11,7 @@ nav.main-nav-bar {
 a.nc-news.title{
   display: flex;
   text-decoration: none;
-  color: white;
+  color: #EEF4D4;
   text-align: center;
   width: 40%;
 }
@@ -35,7 +35,8 @@ a.nc-news.title:hover{
 }
 
 
-/* --------------------NC NEWS LOGO AND TEXT */
+/* --------------------USER SEARCH */
+
 div.user-search {
   text-align: center;
   width: 30%;
@@ -51,7 +52,7 @@ div.user-search input {
   border-bottom-left-radius: 5px;
   border: 3px solid #5d0917;
   background-color: #8b0e23;
-  color: white;
+  color: #EEF4D4;
   font-size: 22px;
   height: 40px;
   padding: 0;
@@ -59,18 +60,22 @@ div.user-search input {
 }
 
 div.user-search input::placeholder {
-  color: #d11534;
+  color: rgba(238, 244, 212, 0.5);
   font-family: 'Poppins';
   line-height: 40px;
 }
 
 div.user-search input:focus {
   outline: none;
-  border: 3px solid #e8173a;
 }
+
 div.user-search button:focus {
   outline: none;
-  border: 3px solid #e8173a;
+  background-color: #8b0e23;
+}
+
+div.user-search button:hover {
+  cursor: pointer;
 }
 
 div.user-search button{
@@ -78,8 +83,106 @@ div.user-search button{
   border-bottom-right-radius: 5px;
   border: 3px solid #5d0917;
   background-color: #ba122e;
-  color: white;
+  color: #EEF4D4;
   font-size: 22px;
   font-family: 'Poppins';
   height: 46px;
+}
+
+
+/* --------------------LOGIN */
+
+div.navbar-user {
+  width: 20%;
+  text-align: center;
+}
+
+div.user-login form {
+  padding-top: 5px;
+}
+
+div.user-login input {
+  font-family: 'Poppins';
+  border: 3px solid #5d0917;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: none;
+  background-color: #8b0e23;
+  color: #EEF4D4;
+  font-size: 16px;
+  padding: 0;
+  width: 70%;
+}
+
+div.user-login #password-login {
+  border-bottom: 3px solid #5d0917;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+div.user-login input::placeholder {
+  color: rgba(238, 244, 212, 0.5);
+  font-family: 'Poppins';
+  line-height: 40px;
+}
+
+div.user-login input:focus {
+  outline: none;
+}
+div.user-login button:focus {
+  outline: none;
+  background-color: #8b0e23
+}
+
+div.user-login button:hover {
+  cursor: pointer;
+}
+
+div.user-login button{
+  border-top: none;
+  border-right: 3px solid #5d0917;
+  border-left: 3px solid #5d0917;
+  border-bottom: 3px solid #5d0917;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #ba122e;
+  color: #EEF4D4;
+  font-size: 18px;
+  font-family: 'Poppins';
+}
+
+/* --------------------USER CARD */
+
+button#user-logout {
+  border: 3px solid #5d0917;
+  border-radius: 5px;
+  color: #EEF4D4;
+  font-size: 12px;
+  font-family: 'Poppins';
+  background-color: #ba122e;
+}
+div.navbar-user div.navbar-usercard {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+div.navbar-user img {
+  height: 65px;
+  border: 3px solid #5d0917;
+  border-radius: 5px;
+}
+
+div.navbar-user h2 {
+  color: #EEF4D4;
+  font-family: 'Poppins';
+  text-decoration: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  line-height: 70px;
+}
+
+a {
+  text-decoration: none;
 }
