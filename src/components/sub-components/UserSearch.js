@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class UserSearch extends Component {
   state = {
-    searchedUsername: ''
+    searchedUsername: '',
+    redirect: ''
   }
 
   render() {
-    const { searchedUsername } = this.state;
+    const { searchedUsername, redirect } = this.state;
     return (
+
       <div className='user-search'>
+        {redirect && <Redirect to={`/users/${redirect}`} />}
         <form>
           <input onChange={this.handleChange} type="text" value={searchedUsername} placeholder='User Search' />
           <button onClick={this.search}>Go!</button>
@@ -27,7 +31,7 @@ class UserSearch extends Component {
   search = (e) => {
     const { searchedUsername } = this.state;
     e.preventDefault();
-    window.location.href = `/users/${searchedUsername}`;
+    this.setState({ redirect: searchedUsername });
   }
 }
 

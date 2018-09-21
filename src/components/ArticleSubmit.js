@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
+import { Redirect } from 'react-router-dom';
 
 class ArticleSubmit extends Component {
   state = {
     'article-title': '',
-    'article-body': ''
+    'article-body': '',
+    redirect: ''
   }
   render() {
     const { match } = this.props;
+    const { redirect } = this.state;
     return (
       <div>
+        {redirect && <Redirect to={`/articles/${redirect}`} />}
         <section className="article-submit">
           <h1>Submit an article about {match.params.topic}!</h1>
           <form>
@@ -46,7 +50,7 @@ class ArticleSubmit extends Component {
     };
     api.postArticle(article, match.params.topic)
       .then(article => {
-        window.location.href = `/articles/${article._id}`;
+        this.setState({ redirect: article._id });
       });
   }
 }
