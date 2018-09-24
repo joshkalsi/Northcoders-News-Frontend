@@ -1,3 +1,17 @@
 div.homepage-content {
   display: flex;
 }
+
+div.topic-list {
+  margin-top: 40px;
+  text-align: center;
+  border: 3px solid #5d0917;
+  background-color: #C51431;
+  border-radius: 5px;
+  position: fixed;
+  width: 300px;
+}
+
+div.topic-list a {
+  color: black;
+}

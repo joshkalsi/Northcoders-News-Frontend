@@ -1,0 +1,42 @@
+section.article-submit {
+  text-align: center;
+  border: 3px solid #5d0917;
+  background-color: #C51431;
+  border-radius: 3px;
+  width: 70%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+section.article-submit input {
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  border-radius: 5px; 
+  border: 3px solid #5d0917;
+}
+
+section.article-submit textarea {
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  width: 40%;
+  height: 200px;
+  resize: vertical;
+  border-radius: 5px; 
+  border: 3px solid #5d0917;
+  font-size: 18px;
+}
+
+section.article-submit button {
+  background-color: #ba122e;
+  color: #EEF4D4;
+  font-size: 18px;
+  font-family: 'Poppins';
+  border: 3px solid #5d0917;
+  border-radius: 5px; 
+}
+
+div.user-login button:focus {
+  outline: none;
+  background-color: #8b0e23
+}

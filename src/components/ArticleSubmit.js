@@ -23,10 +23,10 @@ class ArticleSubmit extends Component {
         <section className="article-submit">
           <h1>Submit an article about {match.params.topic}!</h1>
           <form>
-            <label htmlFor="article-title">Article title:</label>
+            <h2>Article title:</h2>
             <input type="text" name="article-title" id="article-title" placeholder='Enter your article title here' onChange={this.handleChange} value={this.state['article-title']} />
             <br />
-            <label htmlFor="article-body">Article body:</label>
+            <h2>Article body:</h2>
             <textarea name="article-body" id="article-body" placeholder='Enter your article body here' onChange={this.handleChange} value={this.state['article-body']}>
             </textarea>
             <br />

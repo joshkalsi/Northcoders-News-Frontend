@@ -5,6 +5,7 @@ import './CSS/Homepage.css';
 import './CSS/ArticleList.css';
 import './CSS/TopicArticles.css';
 import './CSS/Article.css';
+import './CSS/ArticleSubmit.css';
 import { Route } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import TopicArticles from './components/TopicArticles';
