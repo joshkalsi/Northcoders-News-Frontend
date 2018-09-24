@@ -6,9 +6,11 @@ import Votes from './Votes';
 
 const SingleArticle = ({ article, changeArticleVote }) => {
   return (
-    <div>
-      <h1>{article.title}</h1>
-      <Votes id={article._id} voteNumber={article.votes} changeVote={changeArticleVote} type='article' />
+    <div className='single-article'>
+      <div className="article-header">
+        <h1>{article.title}</h1>
+        <Votes id={article._id} voteNumber={article.votes} changeVote={changeArticleVote} type='article' />
+      </div>
       <p>Posted: {moment(article.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')} </p>
       <p className='article body'>{article.body}</p>
       <UserCard user={article.created_by} />

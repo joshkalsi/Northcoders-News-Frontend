@@ -1,0 +1,25 @@
+div.article-header {
+  display: flex;
+}
+
+div.article-header div.votes h3 {
+  display: inline;
+}
+
+div.single-article {
+  background-color: #C51431;
+    padding-left: 20px;
+}
+
+div.single-article p {
+  margin: 0;
+
+}
+
+div.single-article h1 {
+  margin: 0;
+}
+
+div.single-article div.votes {
+  padding: 0;
+}
