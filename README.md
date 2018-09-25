@@ -1,6 +1,6 @@
 ## Northcoders News
 
-See a live version at: https://nc-news-joshkalsi.herokuapp.com/ 
+See a live version at: https://ncnews-joshkalsi-frontend.herokuapp.com/ 
 
 # Built with:
 * React
