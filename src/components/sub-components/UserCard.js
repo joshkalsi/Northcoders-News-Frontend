@@ -6,7 +6,7 @@ const UserCard = ({ user }) => {
   if (!user) user = {};
   const replaceImage = (e) => {
     e.target.onError = null;
-    e.target.src = 'http://localhost:3000/images/avatar-404.png';
+    e.target.src = '/images/avatar-404.png';
   };
   return (
     <div className='navbar-usercard'>
