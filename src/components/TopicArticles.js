@@ -4,6 +4,7 @@ import TopicList from './sub-components/TopicList';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import * as api from '../api';
+import '../CSS/TopicArticles.css';
 
 class TopicArticles extends Component {
   state = {

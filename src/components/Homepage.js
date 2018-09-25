@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ArticleList from './sub-components/ArticleList';
 import TopicList from './sub-components/TopicList';
-
+import '../CSS/Homepage.css';
 class Homepage extends Component {
   render() {
     return (

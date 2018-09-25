@@ -5,6 +5,7 @@ import SingleArticle from './sub-components/SingleArticle';
 import CommentList from './sub-components/CommentList';
 import { Link, Redirect } from 'react-router-dom';
 import CommentSubmit from './sub-components/CommentSubmit';
+import '../CSS/Article.css';
 
 class Article extends Component {
   state = {

@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import './CSS/App.css';
-import './CSS/MainNavBar.css';
-import './CSS/Homepage.css';
-import './CSS/ArticleList.css';
-import './CSS/TopicArticles.css';
-import './CSS/Article.css';
-import './CSS/ArticleSubmit.css';
 import { Route } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import TopicArticles from './components/TopicArticles';
@@ -25,13 +19,13 @@ class App extends Component {
     const { loggedInUser, user } = this.state;
     return (
       <div className="App">
-        <Route path='/' render={() => <MainNavBar loggedInUser={loggedInUser} userLogin={this.userLogin} user={user} />} />
+        <MainNavBar loggedInUser={loggedInUser} userLogin={this.userLogin} user={user} />
         <Route exact path='/' render={() => <Homepage loggedInUser={loggedInUser} />} />
-        <Route exact path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} />} />
-        <Route exact path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
-        <Route exact path='/users/:username' render={({ match }) => <User match={match} />} />
-        <Route exact path='/topics/:topic/articles/submit' render={({ match }) => <ArticleSubmit match={match} loggedInUser={loggedInUser} />} />
-        <Route exact path='/error' component={Error} />
+        <Route path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} />} />
+        <Route path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
+        <Route path='/users/:username' render={({ match }) => <User match={match} />} />
+        <Route path='/topics/:topic/articles/submit' render={({ match }) => <ArticleSubmit match={match} loggedInUser={loggedInUser} />} />
+        <Route path='/error' component={Error} />
       </div>
     );
   }

@@ -4,6 +4,7 @@ import UserSearch from './UserSearch';
 import UserCard from './UserCard';
 import UserLogin from './UserLogin';
 import { Link } from 'react-router-dom';
+import '../../CSS/MainNavBar.css';
 
 const MainNavBar = ({ loggedInUser, userLogin, user }) => {
   return (

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CommentCard from './CommentCard';
 import moment from 'moment';
-import _ from 'lodash';
+import _shuffle from 'lodash.shuffle';
 
 class CommentList extends Component {
   state = {
@@ -21,7 +21,7 @@ class CommentList extends Component {
 
     if (sortOrder === 'recent') comments = comments.sort(sortRecent);
     else if (sortOrder === 'votes') comments = comments.sort(sortVotes);
-    else if (sortOrder === 'random') comments = _.shuffle(comments);
+    else if (sortOrder === 'random') comments = _shuffle(comments);
     return (
       <div>
         <div className="sort-order">

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import * as api from '../../api';
 import ArticleCard from './ArticleCard';
 import moment from 'moment';
-import _ from 'lodash';
+import _shuffle from 'lodash.shuffle';
+import '../../CSS/ArticleList.css';
 
 class ArticleList extends Component {
   state = {
@@ -33,7 +34,7 @@ class ArticleList extends Component {
     if (topicFilter !== 'none') articles = articles.filter(article => article.belongs_to === topicFilter);
     if (sortOrder === 'recent') articles = articles.sort(sortRecent);
     else if (sortOrder === 'votes') articles = articles.sort(sortVotes);
-    else if (sortOrder === 'random') articles = _.shuffle(articles);
+    else if (sortOrder === 'random') articles = _shuffle(articles);
 
     return (
       <div className='articles'>

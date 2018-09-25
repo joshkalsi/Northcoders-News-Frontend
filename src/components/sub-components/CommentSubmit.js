@@ -29,6 +29,7 @@ class CommentSubmit extends Component {
   submitComment = (e) => {
     e.preventDefault();
     const { loggedInUser, articleID, addNewComment } = this.props;
+
     const body = this.state['comment-body'];
     const comment = {
       created_by: loggedInUser,
@@ -42,7 +43,7 @@ class CommentSubmit extends Component {
           this.setState({
             'comment-body': ''
           });
-        }).catch(() => alert('You are not logged in!'));
+        }).catch(error => this.setState({ error }));
     }
   }
 }

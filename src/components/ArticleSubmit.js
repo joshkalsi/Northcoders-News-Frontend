@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
 import { Redirect } from 'react-router-dom';
-
+import '../CSS/ArticleSubmit.css';
 class ArticleSubmit extends Component {
   state = {
     'article-title': '',
