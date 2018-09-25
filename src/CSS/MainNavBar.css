@@ -8,19 +8,22 @@ nav.main-nav-bar {
 
 
 /* --------------------NC NEWS LOGO AND TEXT */
-a.nc-news.title{
+div.nc-news.title {
+  width: 40%;
+}
+
+div.nc-news.title a {
   display: flex;
   text-decoration: none;
   color: #EEF4D4;
   text-align: center;
-  width: 40%;
 }
 
-a.nc-news.title div img{
+div.nc-news.title img{
   padding-top: 4px;
 }
 
-a.nc-news.title h1 {
+div.nc-news.title h1 {
   font-size: 40px;
   line-height: 100px;
   margin-block-start: 0;
@@ -28,8 +31,7 @@ a.nc-news.title h1 {
   
 }
 
-a.nc-news.title:hover{
-  display: flex;
+div.nc-news.title:hover{
   text-decoration: none;
   color: #ea2e4e;
 }
@@ -99,6 +101,7 @@ div.navbar-user {
 
 div.user-login form {
   padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 div.user-login input {
@@ -185,4 +188,44 @@ div.navbar-usercard h2 {
 
 a {
   text-decoration: none;
+}
+
+/* RESPONSIVE BEHAVIOUR */
+/* RESPONSIVE BEHAVIOUR */
+/* RESPONSIVE BEHAVIOUR */
+
+@media only screen and (max-width: 1200px) {
+  div.nc-news.title h1 {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  nav.main-nav-bar {
+    flex-direction: column;
+    height: 250px;
+  }
+
+  div.nc-news.title {
+  width: 100%;
+  }  
+
+  div.user-search {
+    width: 100%;
+  }
+
+  div.user-search form {
+    padding: 0;
+  }
+
+  div.navbar-user {
+    width: 100%;
+  }
+
+  div.user-login input {
+    width: 30%;
+  }
+  div.navbar-user div.navbar-usercard {
+  justify-content: center;
+}
 }

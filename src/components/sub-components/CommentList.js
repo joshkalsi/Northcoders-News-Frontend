@@ -36,7 +36,7 @@ class CommentList extends Component {
     const sortVotes = (a, b) => {
       return b.votes - a.votes;
     };
-
+    comments = [...comments]; // Avoid mutation with sort
     if (sortOrder === 'recent') comments = comments.sort(sortRecent);
     else if (sortOrder === 'votes') comments = comments.sort(sortVotes);
     else if (sortOrder === 'random') comments = _shuffle(comments);
@@ -69,7 +69,7 @@ class CommentList extends Component {
   }
 
   deleteComment = (commentID) => {
-    const newComments = [... this.state.comments];
+    const newComments = [...this.state.comments];
     const deleteIndex = newComments.findIndex(comment => comment._id === commentID);
     newComments.splice(deleteIndex, 1);
     this.setState({ comments: newComments }, () => {

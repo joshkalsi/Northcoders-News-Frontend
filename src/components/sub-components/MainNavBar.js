@@ -9,12 +9,14 @@ import '../../CSS/MainNavBar.css';
 const MainNavBar = ({ loggedInUser, userLogin, user }) => {
   return (
     <nav className='main-nav-bar'>
-      <Link className='nc-news title' to='/'>
-        <div>
-          <img src='/images/nc-logo.png' alt="Northcoders Logo" className='nc-news logo' />
-        </div>
-        <h1 className='nc-news text'>Northcoders News</h1>
-      </Link>
+      <div className='nc-news title' >
+        <Link to='/'>
+          <div>
+            <img src='/images/nc-logo.png' alt="Northcoders Logo" className='nc-news logo' />
+          </div>
+          <h1 className='nc-news text'>Northcoders News</h1>
+        </Link>
+      </div>
 
       <UserSearch />
       <div className='navbar-user'>
