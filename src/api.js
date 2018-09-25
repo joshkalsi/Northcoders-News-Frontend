@@ -1,5 +1,5 @@
 import axios from 'axios';
-const DB_URL = 'https://northcoders-news-jk.herokuapp.com/api';
+const DB_URL = 'https://ncnews-joshkalsi-backend.herokuapp.com/api';
 
 const withErrorHandling = (func) => {
   return function (...args) {
