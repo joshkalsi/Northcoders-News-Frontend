@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as api from '../api';
+import { fetchUser } from '../api';
 import { Redirect } from 'react-router-dom';
 
 class User extends Component {
@@ -11,7 +11,7 @@ class User extends Component {
 
   componentDidMount() {
     const { username } = this.props.match.params;
-    api.fetchUser(username)
+    fetchUser(username)
       .then(user => {
         this.setState({
           searchedUser: user
@@ -23,7 +23,7 @@ class User extends Component {
   componentDidUpdate() {
     const { username } = this.props.match.params;
     if (this.state.searchedUser.username !== username) {
-      api.fetchUser(username)
+      fetchUser(username)
         .then(user => {
           this.setState({
             searchedUser: user

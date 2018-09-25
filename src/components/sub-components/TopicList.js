@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as api from '../../api';
+import { fetchTopics } from '../../api';
 import { Link, Redirect } from 'react-router-dom';
 
 class TopicList extends Component {
@@ -9,7 +9,7 @@ class TopicList extends Component {
   }
 
   componentDidMount() {
-    api.fetchTopics()
+    fetchTopics()
       .then(topics => {
         this.setState({
           topics

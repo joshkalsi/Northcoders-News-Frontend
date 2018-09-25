@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as api from '../../api';
+import { postComment } from '../../api';
 import PropTypes from 'prop-types';
 
 class CommentSubmit extends Component {
@@ -37,7 +37,7 @@ class CommentSubmit extends Component {
     };
     if (!loggedInUser) window.alert('You need to be logged in to add a comment!');
     else {
-      api.postComment(comment, articleID)
+      postComment(comment, articleID)
         .then((comment) => {
           addNewComment(comment);
           this.setState({

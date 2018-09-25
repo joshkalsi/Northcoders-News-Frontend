@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Votes from './Votes';
 import moment from 'moment';
+
 const ArticleCard = ({ article, changeArticleVote }) => {
   return (
     <div className='article-card'>

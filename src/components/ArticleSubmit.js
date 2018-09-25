@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as api from '../api';
+import { postArticle } from '../api';
 import { Redirect } from 'react-router-dom';
 import '../CSS/ArticleSubmit.css';
 class ArticleSubmit extends Component {
@@ -58,7 +58,7 @@ class ArticleSubmit extends Component {
     };
     if (!loggedInUser) window.alert('You need to log in before submitting an article!');
     else {
-      api.postArticle(article, match.params.topic)
+      postArticle(article, match.params.topic)
         .then(article => {
           this.setState({ redirect: article._id });
         })

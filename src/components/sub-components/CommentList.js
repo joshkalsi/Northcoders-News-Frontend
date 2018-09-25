@@ -4,7 +4,7 @@ import CommentCard from './CommentCard';
 import moment from 'moment';
 import _shuffle from 'lodash.shuffle';
 import CommentSubmit from './CommentSubmit';
-import { fetchCommentsforArticle } from '../../api';
+import { fetchCommentsforArticle, deleteComment as apiDeleteComment } from '../../api';
 
 class CommentList extends Component {
   state = {
@@ -48,7 +48,7 @@ class CommentList extends Component {
           <p onClick={() => this.changeSortOrder('votes')} className="sort-votes">Most Votes</p>
         </div>
         {comments.map(comment => {
-          return <CommentCard key={comment._id} comment={comment} loggedInUser={loggedInUser} />;
+          return <CommentCard key={comment._id} comment={comment} deleteComment={this.deleteComment} loggedInUser={loggedInUser} />;
         })}
       </div>
     );
@@ -65,6 +65,15 @@ class CommentList extends Component {
     newComments.push(comment);
     this.setState({
       comments: newComments
+    });
+  }
+
+  deleteComment = (commentID) => {
+    const newComments = [... this.state.comments];
+    const deleteIndex = newComments.findIndex(comment => comment._id === commentID);
+    newComments.splice(deleteIndex, 1);
+    this.setState({ comments: newComments }, () => {
+      apiDeleteComment(commentID);
     });
   }
 }

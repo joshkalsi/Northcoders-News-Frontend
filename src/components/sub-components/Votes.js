@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as api from '../../api';
+import { changeArticleVote, changeCommentVote } from '../../api';
 class Votes extends Component {
   state = {
     voted: false,
@@ -34,9 +34,9 @@ class Votes extends Component {
       voteValue: value
     }, () => {
       if (type === 'article') {
-        api.changeArticleVote(value, id);
+        changeArticleVote(value, id);
       } else if (type === 'comment') {
-        api.changeCommentVote(value, id);
+        changeCommentVote(value, id);
       }
     });
   }
