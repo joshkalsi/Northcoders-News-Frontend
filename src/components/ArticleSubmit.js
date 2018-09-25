@@ -38,6 +38,8 @@ class ArticleSubmit extends Component {
   }
 
   handleChange = (e) => {
+    const { loggedInUser } = this.props;
+    if (!loggedInUser) window.alert('You need to log in before submitting an article!');
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -46,6 +48,7 @@ class ArticleSubmit extends Component {
   submitArticle = (e) => {
     e.preventDefault();
     const { loggedInUser, match } = this.props;
+
     const title = this.state['article-title'];
     const body = this.state['article-body'];
     const article = {
@@ -53,16 +56,19 @@ class ArticleSubmit extends Component {
       title,
       body
     };
-    api.postArticle(article, match.params.topic)
-      .then(article => {
-        this.setState({ redirect: article._id });
-      })
-      .catch(error => this.setState({ error }));
+    if (!loggedInUser) window.alert('You need to log in before submitting an article!');
+    else {
+      api.postArticle(article, match.params.topic)
+        .then(article => {
+          this.setState({ redirect: article._id });
+        })
+        .catch(error => this.setState({ error }));
+    }
   }
 }
 
 ArticleSubmit.propTypes = {
-  loggedInUser: PropTypes.string,
+  loggedInUser: PropTypes.string.isRequired,
   match: PropTypes.object
 };
 

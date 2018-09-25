@@ -19,6 +19,8 @@ class CommentSubmit extends Component {
   }
 
   handleChange = (e) => {
+    const { loggedInUser } = this.props;
+    if (!loggedInUser) window.alert('You need to be logged in to add a comment!');
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -32,13 +34,16 @@ class CommentSubmit extends Component {
       created_by: loggedInUser,
       body
     };
-    api.postComment(comment, articleID)
-      .then((comment) => {
-        addNewComment(comment);
-        this.setState({
-          'comment-body': ''
-        });
-      }).catch(() => alert('You are not logged in!'));
+    if (!loggedInUser) window.alert('You need to be logged in to add a comment!');
+    else {
+      api.postComment(comment, articleID)
+        .then((comment) => {
+          addNewComment(comment);
+          this.setState({
+            'comment-body': ''
+          });
+        }).catch(() => alert('You are not logged in!'));
+    }
   }
 }
 
