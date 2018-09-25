@@ -8,7 +8,7 @@ import User from './components/User';
 import ArticleSubmit from './components/ArticleSubmit';
 import MainNavBar from './components/sub-components/MainNavBar';
 import Error from './components/Error';
-import * as api from './api';
+import { fetchUser } from './api';
 
 class App extends Component {
   state = {
@@ -21,9 +21,9 @@ class App extends Component {
       <div className="App">
         <MainNavBar loggedInUser={loggedInUser} userLogin={this.userLogin} user={user} />
         <Route exact path='/' render={() => <Homepage loggedInUser={loggedInUser} />} />
-        <Route path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} />} />
-        <Route path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
         <Route path='/users/:username' render={({ match }) => <User match={match} />} />
+        <Route path='/articles/:article_id' render={({ match }) => <Article match={match} loggedInUser={loggedInUser} />} />
+        <Route exact path='/topics/:topic/articles' render={({ match }) => <TopicArticles match={match} />} />
         <Route path='/topics/:topic/articles/submit' render={({ match }) => <ArticleSubmit match={match} loggedInUser={loggedInUser} />} />
         <Route path='/error' component={Error} />
       </div>
@@ -33,7 +33,7 @@ class App extends Component {
   userLogin = (username, logoutCheck = false) => {
     if (logoutCheck) this.setState({ loggedInUser: '' });
     else {
-      api.fetchUser(username)
+      fetchUser(username)
         .then((user) => {
           this.setState({ loggedInUser: username, user });
         })

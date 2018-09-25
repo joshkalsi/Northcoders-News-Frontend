@@ -17,6 +17,11 @@ export const fetchTopics = withErrorHandling(() => {
     .then(({ data }) => data.topics);
 });
 
+export const fetchArticlesByTopic = withErrorHandling((topic_slug) => {
+  return axios.get(`${DB_URL}/topics/${topic_slug}/articles`)
+    .then(({ data }) => data.articles);
+});
+
 export const fetchSingleArticle = withErrorHandling((article_id) => {
   return axios.get(`${DB_URL}/articles/${article_id}`)
     .then(({ data }) => data.article);

@@ -4,12 +4,12 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import Votes from './Votes';
 
-const SingleArticle = ({ article, changeArticleVote }) => {
+const SingleArticle = ({ article }) => {
   return (
     <div className='single-article'>
       <div className="article-header">
         <h1>{article.title}</h1>
-        <Votes id={article._id} voteNumber={article.votes} changeVote={changeArticleVote} type='article' />
+        <Votes id={article._id} voteNumber={article.votes} type='article' />
       </div>
       <p>Posted: {moment(article.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')} </p>
       <p className='article body'>{article.body}</p>
@@ -19,8 +19,7 @@ const SingleArticle = ({ article, changeArticleVote }) => {
 };
 
 SingleArticle.propTypes = {
-  article: PropTypes.object,
-  changeArticleVote: PropTypes.func
+  article: PropTypes.object
 };
 
 export default SingleArticle;

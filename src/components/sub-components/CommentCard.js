@@ -11,7 +11,7 @@ class CommentCard extends Component {
     error: null
   }
   render() {
-    const { comment, changeCommentVote, loggedInUser } = this.props;
+    const { comment, loggedInUser } = this.props;
     const { hidden, error } = this.state;
     return (
       <div>
@@ -23,7 +23,7 @@ class CommentCard extends Component {
           <div>
             <p style={{ fontWeight: 'bold' }}> {comment.body}</p>
             <p>Posted: {moment(comment.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')} </p>
-            <Votes id={comment._id} voteNumber={comment.votes} changeVote={changeCommentVote} type='comment' />
+            <Votes id={comment._id} voteNumber={comment.votes} type='comment' />
             <p>Created by: {comment.created_by.name}</p>
             {comment.created_by.username === loggedInUser && <button onClick={() => this.deleteComment(comment._id)}>Delete</button>}
           </div>
@@ -41,7 +41,6 @@ class CommentCard extends Component {
 
 CommentCard.propTypes = {
   comment: PropTypes.object,
-  changeCommentVote: PropTypes.func,
   loggedInUser: PropTypes.string
 };
 

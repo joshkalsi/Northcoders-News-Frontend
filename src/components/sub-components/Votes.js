@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import * as api from '../../api';
 class Votes extends Component {
   state = {
-    voted: false
+    voted: false,
+    voteValue: ''
   }
   render() {
-    const { voteNumber } = this.props;
-    const { voted } = this.state;
+    let { voteNumber } = this.props;
+    const { voted, voteValue } = this.state;
+    if (voteValue === 'up') voteNumber++;
+    else if (voteValue === 'down') voteNumber--;
     return (
       <div>
-
-
         <div className='votes'>
           {!voted
             ? <i onClick={() => this.handleVote('up')} className="fas fa-arrow-circle-up up-on"></i>
@@ -27,14 +28,17 @@ class Votes extends Component {
   }
 
   handleVote = (value) => {
-    const { changeVote, id, type } = this.props;
-    changeVote(value, id);
-    if (type === 'article') {
-      api.changeArticleVote(value, id);
-    } else if (type === 'comment') {
-      api.changeCommentVote(value, id);
-    }
-    this.setState({ voted: true });
+    const { id, type } = this.props;
+    this.setState({
+      voted: true,
+      voteValue: value
+    }, () => {
+      if (type === 'article') {
+        api.changeArticleVote(value, id);
+      } else if (type === 'comment') {
+        api.changeCommentVote(value, id);
+      }
+    });
   }
 }
 

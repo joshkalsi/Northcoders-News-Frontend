@@ -8,7 +8,7 @@ class Homepage extends Component {
       <div>
         <div className="homepage-content">
           <section className='homepage articles'>
-            <ArticleList topicFilter={'none'} />
+            <ArticleList topic={'none'} />
           </section>
           <section className='homepage topic-list'>
             <TopicList />
