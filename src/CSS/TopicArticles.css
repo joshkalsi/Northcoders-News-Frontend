@@ -1,3 +1,13 @@
 div.topic-articles-content {
   display: flex;
 }
+
+div.topic-articles-submit a h1 {
+  display: inline;
+}
+
+@media only screen and (max-width: 850px) {
+  div.topic-articles-content {
+    display: block;
+  }
+}

@@ -1,6 +1,12 @@
 div.homepage-content {
   display: flex;
 }
+section.homepage.articles {
+  width: 70%;
+}
+section.homepage.topic-list {
+  width: 25%;
+}
 
 div.topic-list {
   margin-top: 40px;
@@ -14,4 +20,23 @@ div.topic-list {
 
 div.topic-list a {
   color: black;
+}
+
+@media only screen and (max-width: 850px) {
+  div.homepage-content {
+    flex-direction: column-reverse;
+  }
+
+  section.homepage.topic-list {
+    width: 100%;
+  }
+  div.topic-list {
+    position: relative;
+    margin: auto;
+  }
+  div.topic-list h2 {
+    display: inline;
+    margin-right: 10px;
+    font-size: 10px;
+  }
 }

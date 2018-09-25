@@ -21,9 +21,11 @@ class TopicArticles extends Component {
             pathname: '/error',
             state: { error: error.response.status }
           }} />}
-          <Link to={`/topics/${topic}/articles/submit`}>
-            <h1>Submit an Article!</h1>
-          </Link>
+          <div className='topic-articles-submit'>
+            <Link to={`/topics/${topic}/articles/submit`}>
+              <h1>Submit an Article!</h1>
+            </Link>
+          </div>
           <div className="topic-articles-content">
             <section className='homepage articles'>
               <ArticleList topic={topic} />
