@@ -1,0 +1,73 @@
+
+div.comment-submit {
+  text-align: center;
+}
+
+div.comment-submit textarea {
+  font-family: 'Poppins', sans-serif;
+  width: 40%;
+  height: 100px;
+  resize: vertical;
+  border-radius: 5px; 
+  border: 3px solid #5d0917;
+  font-size: 18px;
+}
+
+div.comment-submit button {
+  background-color: #ba122e;
+  color: #EEF4D4;
+  font-size: 18px;
+  font-family: 'Poppins';
+  border: 3px solid #5d0917;
+  border-radius: 5px; 
+}
+
+div.comment-card {
+  background-color: #C51431;
+  border: 3px solid #5d0917;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.sort-order.comment {
+  display: block;
+  padding-left: 80%;
+  float: none;
+  text-align: center;
+  margin: 20px;
+}
+div.comment-card p {
+  text-align: center;
+}
+
+p.comment-body {
+  text-align: left;
+  color: #EEF4D4;
+}
+
+div.comment-card div.votes {
+  margin: auto;
+  padding: 0;
+  text-align: center;
+}
+
+div.comment-card div.votes h3 {
+  display: inline;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+div.comment-card button {
+  background-color: #ba122e;
+  color: #EEF4D4;
+  font-size: 18px;
+  font-family: 'Poppins';
+  border: 3px solid #5d0917;
+  border-radius: 5px;
+  margin-left: 90%;
+  margin-bottom: 10px;
+}
+

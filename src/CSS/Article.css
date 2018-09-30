@@ -1,25 +1,52 @@
 div.article-header {
   display: flex;
+  flex-flow: column;
 }
 
 div.article-header div.votes h3 {
   display: inline;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 div.single-article {
   background-color: #C51431;
-    padding-left: 20px;
+  padding-left: 20px;
+  color: #EEF4D4;
 }
 
-div.single-article p {
-  margin: 0;
+div.single-article p.posted {
+  text-align: center;
+  padding: 0;
+  color: #1C2826;
 
 }
 
 div.single-article h1 {
-  margin: 0;
+  margin: auto;
+  padding-top: 10px;
+  color: #EEF4D4;
+  
 }
 
+h2.return-link {
+  text-align: center;
+}
+
+
 div.single-article div.votes {
+  margin: auto;
   padding: 0;
+  text-align: center;
+}
+
+div.single-article div.navbar-usercard {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  border-bottom: 5px solid #1C2826;
+}
+
+div.single-article div.navbar-usercard h2{
+  padding-left: 10px;
 }

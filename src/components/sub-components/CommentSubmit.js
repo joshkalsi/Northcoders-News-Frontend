@@ -8,10 +8,11 @@ class CommentSubmit extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='comment-submit'>
         <form>
-          <label htmlFor="comment-body">Leave a comment:</label>
-          <input type="text" name="comment-body" id="comment-body" value={this.state['comment-body']} onChange={this.handleChange} />
+
+          <textarea name="comment-body" id="comment-body" value={this.state['comment-body']} onChange={this.handleChange} placeholder='Leave a comment:' ></textarea>
+          <br />
           <button onClick={this.submitComment}>Submit</button>
         </form>
       </div>

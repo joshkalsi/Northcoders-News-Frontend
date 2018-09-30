@@ -11,7 +11,7 @@ const SingleArticle = ({ article }) => {
         <h1>{article.title}</h1>
         <Votes id={article._id} voteNumber={article.votes} type='article' />
       </div>
-      <p>Posted: {moment(article.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')} </p>
+      <p className='posted'>Posted: {moment(article.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')} </p>
       <p className='article body'>{article.body}</p>
       <UserCard user={article.created_by} />
     </div>

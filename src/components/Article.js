@@ -33,10 +33,10 @@ class Article extends Component {
           pathname: '/error',
           state: { error: error.response.status }
         }} />}
-        <Link to={`/topics/${article.belongs_to}/articles`}>
-          <h1>Back to articles</h1>
-        </Link>
         <SingleArticle article={article} />
+        <Link to={`/topics/${article.belongs_to}/articles`}>
+          <h2 className='return-link'> Back to articles</h2>
+        </Link>
         <CommentList articleID={article._id} loggedInUser={loggedInUser} />
       </div>
     );

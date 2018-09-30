@@ -17,11 +17,11 @@ class CommentCard extends Component {
           pathname: '/error',
           state: { error: error.response.status }
         }} />}
-        <div>
-          <p style={{ fontWeight: 'bold' }}> {comment.body}</p>
-          <p>Posted: {moment(comment.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')} </p>
+        <div className='comment-card'>
+          <p className='comment-body' style={{ fontWeight: 'bold' }}> {comment.body}</p>
           <Votes id={comment._id} voteNumber={comment.votes} type='comment' />
-          <p>Created by: {comment.created_by.name}</p>
+          <p>{comment.created_by.name}</p>
+          <p>Posted: {moment(comment.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')} </p>
           {comment.created_by.username === loggedInUser && <button onClick={() => deleteComment(comment._id)}>Delete</button>}
         </div>
       </div>

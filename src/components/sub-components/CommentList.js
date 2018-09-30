@@ -4,6 +4,7 @@ import CommentCard from './CommentCard';
 import moment from 'moment';
 import _shuffle from 'lodash.shuffle';
 import CommentSubmit from './CommentSubmit';
+import '../../CSS/CommentList.css';
 import { fetchCommentsforArticle, deleteComment as apiDeleteComment } from '../../api';
 
 class CommentList extends Component {
@@ -43,9 +44,9 @@ class CommentList extends Component {
     return (
       <div>
         <CommentSubmit articleID={articleID} loggedInUser={loggedInUser} addNewComment={this.addNewComment} />
-        <div className="sort-order">
-          <p onClick={() => this.changeSortOrder('recent')} className="sort-recent">Recent</p>
-          <p onClick={() => this.changeSortOrder('votes')} className="sort-votes">Most Votes</p>
+        <div className="sort-order comment">
+          <p onClick={() => this.changeSortOrder('recent')} className={`sort-recent ${sortOrder === 'recent'}`}>Recent</p>
+          <p onClick={() => this.changeSortOrder('votes')} className={`sort-votes ${sortOrder === 'votes'}`}>Most Votes</p>
         </div>
         {comments.map(comment => {
           return <CommentCard key={comment._id} comment={comment} deleteComment={this.deleteComment} loggedInUser={loggedInUser} />;
