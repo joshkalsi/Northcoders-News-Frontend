@@ -3,7 +3,7 @@
 NC News is a Reddit-style article aggregator. Articles are divided into various topics of interest, and each article also has comments attached to it. Logged in users can vote on existing articles and topics, and may also submit new ones. Users may also delete their comments (but not any belonging to someone else). You can also search for a username to see a basic profile view.
 
 ## Try it out:
-You can see a live version at https://ncnews-joshkalsi-frontend.herokuapp.com/. In order to post articles and comments, you will need to log in at the top right - simply enter one of these usernames (there is no password authentication present):
+You can see a live version at https://ncnews-joshkalsi-frontend.herokuapp.com/. In order to post articles and comments, you must be logged in. By default you are logged in as user jessjelly - to choose a different user, simply log out and enter one of these usernames (there is no password authentication present):
 * jessjelly
 * weegembump
 * tickle122
