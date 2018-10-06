@@ -12,8 +12,12 @@ import { fetchUser } from './api';
 
 class App extends Component {
   state = {
-    loggedInUser: '',
-    user: {}
+    loggedInUser: 'jessjelly',
+    user: {
+      username: 'jessjelly',
+      name: 'Jess Jelly',
+      avatar_url: 'https://s-media-cache-ak0.pinimg.com/564x/39/62/ec/3962eca164e60cf46f979c1f57d4078b.jpg'
+    }
   }
   render() {
     const { loggedInUser, user } = this.state;
